@@ -1,5 +1,4 @@
 package com.example.a7zad
-import kotlin.random.Random
 
 interface RollingTool{
     fun roll(): String
@@ -36,4 +35,10 @@ fun CoinOrDice() {
             return
         }
     }
+    println("Wynik rzutu: ${pick.roll()}")
 }
+
+fun main(){
+    CoinOrDice()
+}
+
