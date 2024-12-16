@@ -20,3 +20,20 @@ class Coin : RollingTool{
         }
     }
 }
+
+fun CoinOrDice() {
+    println("Wybierz, czym chcesz rzucić:")
+    println("1 - Kostką")
+    println("2 - Monetą")
+
+    val choice = readLine()?.toInt()
+
+    val pick: RollingTool = when (choice) {
+        1 -> Dice()
+        2 -> Coin()
+        else -> {
+            println("Nieprawidłowy wybór")
+            return
+        }
+    }
+}
