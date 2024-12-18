@@ -9,4 +9,14 @@ class FavouriteBookTracker{
         booksList.add(Book(title, author, year))
         println("Dodano ksiazke: $title autorstwa $author z $year roku")
     }
+
+    fun displayBooks() {
+        if(booksList.isEmpty()){
+            println("Lista ksiazek jest pusta")
+        }
+        else {
+            println("Lista twoich ulubionych ksiazek:")
+            booksList.forEach{ println("${it.title}, autor: ${it.author} - ${it.year}") }
+        }
+    }
 }
