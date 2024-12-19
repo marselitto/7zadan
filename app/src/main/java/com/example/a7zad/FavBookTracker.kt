@@ -30,4 +30,15 @@ class FavouriteBookTracker{
             filteredBooks.forEach{ println("${it.title}")}
         }
     }
+
+    fun filterByYear(year: Int){
+        val filteredBooks = booksList.filter{it.year == year}
+        if(filteredBooks.isEmpty()){
+            println("Brak ksiazek z $year na liscie")
+        }
+        else{
+            println("Ksiazki z $year")
+            filteredBooks.forEach{println("${it.title}, - ${it.author}")}
+        }
+    }
 }
