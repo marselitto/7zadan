@@ -65,7 +65,7 @@ fun main(){
         println("3 - Filtruj ksiazki wg. autora")
         println("4 - Filtruj ksiazki wg. roku wydania")
         println("5 - Posortuj ksiazki po tytule")
-        print("Wybor")
+        print("Wybor: ")
 
         when(readLine()?.toInt()){
             1 -> {
