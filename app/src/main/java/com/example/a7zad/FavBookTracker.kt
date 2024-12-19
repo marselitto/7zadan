@@ -75,6 +75,9 @@ fun main(){
                 val author = readLine()
                 println("Podaj rok: ")
                 val year = readLine()?.toInt()
+                if (title != null && author != null && year != null) {
+                    favBooks.addBook(title, author, year)
+                }
             }
             2 -> {
                 favBooks.displayBooks()
