@@ -41,4 +41,15 @@ class FavouriteBookTracker{
             filteredBooks.forEach{println("${it.title}, - ${it.author}")}
         }
     }
+
+    fun sortingByTitle(title: String){
+        val sortedBooks = booksList.sortedBy{it.title}
+        if(sortedBooks.isEmpty()){
+            println("Lista jest pusta")
+        }
+        else{
+            println("Posortowana alfabetycznie lista:")
+            sortedBooks.forEach{println("${it.title} - ${it.year} - ${it.author}")}
+        }
+    }
 }
