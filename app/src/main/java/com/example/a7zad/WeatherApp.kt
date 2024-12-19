@@ -35,4 +35,14 @@ fun main(){
 
     println("Podaj nazwe miasta: ")
     val choice = readLine()
+    val choiceOfCity = cities.find{it.name.equals(choice)}
+
+    if(choiceOfCity != null){
+        println("Prognoza pogody dla ${choiceOfCity.name}: ")
+        println(choiceOfCity.weather.forecast())
+    }
+    else {
+        println("Nie znaleziono miasta o podanej nazwie")
+    }
+
 }
