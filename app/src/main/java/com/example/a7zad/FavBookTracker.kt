@@ -42,7 +42,7 @@ class FavouriteBookTracker{
         }
     }
 
-    fun sortingByTitle(title: String){
+    fun sortByTitle() {
         val sortedBooks = booksList.sortedBy{it.title}
         if(sortedBooks.isEmpty()){
             println("Lista jest pusta")
@@ -50,6 +50,52 @@ class FavouriteBookTracker{
         else{
             println("Posortowana alfabetycznie lista:")
             sortedBooks.forEach{println("${it.title} - ${it.year} - ${it.author}")}
+        }
+    }
+
+}
+fun main(){
+
+    val favBooks = FavouriteBookTracker()
+
+    while(true){
+        println("Co chcialbys zrobic?")
+        println("1 - Dodaj ksiazke")
+        println("2 - Wyswietl wszystkie ksiazki")
+        println("3 - Filtruj ksiazki wg. autora")
+        println("4 - Filtruj ksiazki wg. roku wydania")
+        println("5 - Posortuj ksiazki po tytule")
+        print("Wybor")
+
+        when(readLine()?.toInt()){
+            1 -> {
+                println("Podaj tytul: ")
+                val title = readLine()
+                println("Podaj autora: ")
+                val author = readLine()
+                println("Podaj rok: ")
+                val year = readLine()?.toInt()
+            }
+            2 -> {
+                favBooks.displayBooks()
+            }
+            3 -> {
+                println("Podaj autora: ")
+                val author = readLine().toString()
+                favBooks.filterByAuthor(author)
+            }
+            4 -> {
+                println("Podaj rok wydania: ")
+                val year = readLine()?.toInt()
+                if(year != null){
+                    favBooks.filterByYear(year)
+                } else {
+                    println("Nieprawidlowy rok")
+                }
+
+            }
+            5 -> favBooks.sortByTitle()
+            else -> println("Blad")
         }
     }
 }
