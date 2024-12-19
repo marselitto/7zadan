@@ -20,4 +20,6 @@ class Windy : Weather{
     override fun forecast(): String = "Dzisiaj jest wietrznie"
 }
 
+data class City(val name: String, val weather: Weather)
+
 
