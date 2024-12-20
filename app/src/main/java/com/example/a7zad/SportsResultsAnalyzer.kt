@@ -33,3 +33,31 @@ class SportsResultsAnalyzer{
         return matchScore.count {it > threshold}
     }
 }
+
+fun main(){
+    val sportsResultsAnalyzer = SportsResultsAnalyzer()
+
+    println("Wprowadz wyniki meczow. Wpisz 'koniec' aby zakonczyc")
+
+    while (true){
+        val input = readLine()
+
+        if (input == "koniec"){
+            break
+        }
+
+        val scores = input?.toInt()
+        if(scores != null){
+            sportsResultsAnalyzer.addScore(scores)
+            println("Dodano wynik: $scores")
+        }
+        else {
+            println("Blad, nieprawidlowy wynik")
+        }
+    }
+    println("Podsumowanie: ")
+    println("Wprowadzone wyniki: ${sportsResultsAnalyzer.filterScore(0)}")
+    println("Suma wynikow: ${sportsResultsAnalyzer.sumScore()}")
+    println("Maksymalny wynik: ${sportsResultsAnalyzer.maxScore()}")
+    println("Roznica miedzy maksymalnym a minimalnym wynikiem: ${sportsResultsAnalyzer.scoreDifference()}")
+}
