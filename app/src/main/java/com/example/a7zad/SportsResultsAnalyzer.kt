@@ -19,4 +19,17 @@ class SportsResultsAnalyzer{
         return matchScore.sum()
     }
 
+    fun maxScore(): Int{
+        return matchScore.max()
+    }
+
+    fun scoreDifference(): Int {
+        val maxScore = matchScore.max()
+        val minScore = matchScore.min()
+        return maxScore - minScore
+    }
+
+    fun countMatches(threshold: Int): Int{
+        return matchScore.count {it > threshold}
+    }
 }
