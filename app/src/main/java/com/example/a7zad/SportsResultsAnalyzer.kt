@@ -11,5 +11,12 @@ class SportsResultsAnalyzer{
         return matchScore.filter {it > threshold}
     }
 
+    fun addBonusPoints(bonus: Int): List<Int>{
+        return matchScore.map {it + bonus}
+    }
+
+    fun sumScore(): Int{
+        return matchScore.sum()
+    }
 
 }
