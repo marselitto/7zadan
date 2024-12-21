@@ -7,9 +7,9 @@ interface Question {
 
 class MultipleChoiceQuestion(val questionText: String, val options: List<String>, val correctOption: Int) : Question {
     override fun askQuestion(): String {
-        var askQuestion = "$questionText"
+        var askQuestion = "$questionText\n"
         for (i in options.indices) {
-            askQuestion += "${i + 1}. ${options[i]}"
+            askQuestion += "${i + 1}. ${options[i]}\n"
         }
         return askQuestion
     }
@@ -71,4 +71,5 @@ fun main() {
             println("Niepoprawna odpowiedz.")
         }
     }
+    println("Twoj wynik: $score")
 }
