@@ -19,6 +19,17 @@ class MultipleChoiceQuestion(val questionText: String, val options: List<String>
     }
 }
 
+class TrueFalseQuestion(val questionText: String, val correctAnswer: Boolean) : Question{
+    override fun askQuestion(): String {
+        return "$questionText (Prawda/Fałsz)"
+    }
+    override fun checkAnswer(answer: String): Boolean {
+        return when (answer.lowercase()) {
+            "prawda" -> correctAnswer
+            "fałsz" -> !correctAnswer
+            else -> false
+}
+
 fun main(){
 
 }
