@@ -19,3 +19,31 @@ object Quotes{
         println("Dodano nowy cyctat: $quote")
     }
 }
+
+fun main(){
+    while(true){
+        println("Wybierz opcje: ")
+        println("1 - wyswietl losowy cytat")
+        println("2 - dodaj nowy cytat")
+        println("3 - wyjdz")
+        print("Wybor: ")
+
+        when(readLine()){
+            "1" -> {
+                println("Losowy cytat: ")
+                println(Quotes.randomQuote())
+            }
+            "2" -> {
+                println("Podaj nowy cytat: ")
+                val newQuote = readLine()
+                Quotes.addQuote(newQuote.toString())
+            }
+            "3" -> {
+                break
+            }
+            else -> {
+                println("Blad")
+            }
+        }
+    }
+}
