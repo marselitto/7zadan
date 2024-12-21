@@ -19,24 +19,27 @@ class MultipleChoiceQuestion(val questionText: String, val options: List<String>
     }
 }
 
-class TrueFalseQuestion(val questionText: String, val correctAnswer: Boolean) : Question{
+class TrueFalseQuestion(val questionText: String, val correctAnswer: Boolean) : Question {
     override fun askQuestion(): String {
         return "$questionText (Prawda/Fałsz)"
     }
+
     override fun checkAnswer(answer: String): Boolean {
         return when (answer.lowercase()) {
             "prawda" -> correctAnswer
             "fałsz" -> !correctAnswer
             else -> false
+        }
+    }
 }
 
 fun main() {
     println("Witaj w quizie!")
     val questions: List<Question> = listOf(
         MultipleChoiceQuestion(
-        "Jaka barwa powstanie z połączenia czerwonego i niebieskiego?",
-        listOf("brązowy", "fioletowy", "różowy", "czarny"),
-        2
+            "Jaka barwa powstanie z połączenia czerwonego i niebieskiego?",
+            listOf("brązowy", "fioletowy", "różowy", "czarny"),
+            2
         ),
 
         TrueFalseQuestion(
@@ -54,5 +57,18 @@ fun main() {
         )
     )
 
+    var score = 0
+    for ((index, question) in questions.withIndex()) {
+        println("Pytanie ${index + 1}:")
+        println(question.askQuestion())
+        print("Twoja odpowiedz: ")
+        val userAnswer = readLine().toString()
 
+        if (question.checkAnswer(userAnswer)) {
+            println("Poprawna odpowiedz!")
+            score++
+        } else {
+            println("Niepoprawna odpowiedz.")
+        }
+    }
 }
