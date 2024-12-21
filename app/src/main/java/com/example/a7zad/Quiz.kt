@@ -30,6 +30,29 @@ class TrueFalseQuestion(val questionText: String, val correctAnswer: Boolean) : 
             else -> false
 }
 
-fun main(){
+fun main() {
+    println("Witaj w quizie!")
+    val questions: List<Question> = listOf(
+        MultipleChoiceQuestion(
+        "Jaka barwa powstanie z połączenia czerwonego i niebieskiego?",
+        listOf("brązowy", "fioletowy", "różowy", "czarny"),
+        2
+        ),
+
+        TrueFalseQuestion(
+            "Rio de Janeiro to stolica Brazylii",
+            false
+        ),
+        MultipleChoiceQuestion(
+            "Co ile lat występuje rok przestępny?",
+            listOf("co dwa", "co trzy", "co cztery", "co pięć"),
+            3
+        ),
+        TrueFalseQuestion(
+            "Czy Wielki Mur Chiński widać z kosmosu?",
+            false
+        )
+    )
+
 
 }
